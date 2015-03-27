@@ -38,10 +38,11 @@ public class LoginController {
 	 * @param request
 	 * @param loginPoJo
 	 * @return
+	 * @throws Exception
 	 */
 	@RequestMapping(value = "/loginCheck.html")
 	public ModelAndView loginCheck(HttpServletRequest request,
-			LoginPOJO loginPoJo) {
+			LoginPOJO loginPoJo) throws Exception {
 
 		boolean isValidUser = userService.hasMatchUser(loginPoJo.getUserName(),
 				loginPoJo.getPassword());

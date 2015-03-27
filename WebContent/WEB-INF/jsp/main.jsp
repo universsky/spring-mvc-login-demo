@@ -8,6 +8,9 @@
 <title>宝宝淘论坛</title>
 </head>
 <body>
-    ${user.userName},欢迎您进入宝宝淘论坛! 您当前积分为${user.credit}
+    ${user.userName},欢迎您进入宝宝淘论坛! 
+    <br>您当前积分为${user.credit}
+    <br>您的IP：${user.lastIP}
+    <br>登陆时间：${user.lastVisit }
 </body>
 </html>

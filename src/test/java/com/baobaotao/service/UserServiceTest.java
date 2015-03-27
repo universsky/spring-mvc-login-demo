@@ -10,8 +10,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.baobaotao.domain.*;
+import com.baobaotao.result.Result;
 
 /**
  * @author chenguangjian 2015年3月25日 下午3:53:35
@@ -25,29 +27,35 @@ public class UserServiceTest {
 	@Autowired
 	private LoginLogService loginLogService;
 
-	String userName = "admin";
-	String password = "123456";
+	@Test
+	@Transactional
+	public void testRegist() throws Exception {
+		String userName = "root";
+		String password = "123456";
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
+		Result<String> result = userService.regist(userName, password);
+		assertEquals(true, result.isSuccess());
+
 	}
 
 	/**
 	 * Test method for
 	 * {@link com.baobaotao.service.UserService#hasMatchUser(java.lang.String, java.lang.String)}
 	 * .
+	 * 
+	 * @throws Exception
 	 */
 	@Test
-	public void testHasMatchUser() {
+	public void testHasMatchUser() throws Exception {
+
+		String userName = "admin";
+		String password = "123456";
 
 		boolean b1 = userService.hasMatchUser(userName, password);
-		Assert.assertTrue(b1);
+		assertEquals(true, b1);
 
 		boolean b2 = userService.hasMatchUser(userName + "xxx", password);
-		Assert.assertFalse(b2);
+		assertEquals(false, b2);
 
 	}
 
@@ -58,6 +66,8 @@ public class UserServiceTest {
 	 */
 	@Test
 	public void testFindUserByUserName() {
+		String userName = "admin";
+		String password = "123456";
 		User user = userService.findUserByUserName(userName);
 		assertEquals(user.getUserName(), userName);
 	}
@@ -69,6 +79,8 @@ public class UserServiceTest {
 	 */
 	@Test
 	public void testLoginSuccess() {
+		String userName = "admin";
+		String password = "123456";
 		User user = userService.findUserByUserName(userName);
 		userService.loginSuccess(user);
 

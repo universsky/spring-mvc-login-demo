@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.baobaotao.dao.*;
 import com.baobaotao.domain.*;
+import com.baobaotao.result.Result;
 
 /**
  * @author chenguangjian 2015年3月25日 上午11:51:02
@@ -25,8 +26,23 @@ public class UserService {
 	 * @param userName
 	 * @param password
 	 * @return
+	 * @throws Exception
 	 */
-	public boolean hasMatchUser(String userName, String password) {
+	public Result<String> regist(String userName, String password)
+			throws Exception {
+		return userDao.regist(userName, password);
+
+	}
+
+	/**
+	 * 
+	 * @param userName
+	 * @param password
+	 * @return
+	 * @throws Exception
+	 */
+	public boolean hasMatchUser(String userName, String password)
+			throws Exception {
 		int matchCount = userDao.getMatchCount(userName, password);
 		return matchCount > 0;
 	}
