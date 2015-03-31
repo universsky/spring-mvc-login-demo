@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    Congratulations! ${user.userName}   Regist Success <br>
+    Congratulations! ${user.userName}!   YOU Registered Success! <br>
     
     <form action="index.html">
 			<input type="button" value="点击登陆" />  
