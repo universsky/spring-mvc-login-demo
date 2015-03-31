@@ -25,8 +25,8 @@ public class UserDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	@Value("#{salt['baotao.password.salt']}")
-	private String salt;
+	// @Value("#{salt['baotao.password.salt']}")
+	private String salt = "123456";
 
 	/**
 	 * 
