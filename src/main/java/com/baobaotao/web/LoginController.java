@@ -58,7 +58,7 @@ public class LoginController {
 			// put the user object into reqeust session
 			request.getSession().setAttribute("user", user);
 
-			return new ModelAndView("main");
+			return new ModelAndView("home");
 		}
 
 	}

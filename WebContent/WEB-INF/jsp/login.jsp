@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html>
 	<head>
 		<title>宝宝淘论坛登录</title>
@@ -20,9 +21,9 @@
 			<input type="reset" value="重置" />
 		</form>
 		
-		<form action="regist.jsp">  
-			<input type=submit value=注册>
-        </form>
+		<form action="registPage.html">
+			<input type="submit"  value="新用户注册" />  
+		</form>
 
 	</body>
 </html>
